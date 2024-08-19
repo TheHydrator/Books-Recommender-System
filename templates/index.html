@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #f0f4f8; /* Light text color for contrast */
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-gradient {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+            margin-right: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #dcdcdc;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+        .content {
+            padding: 2rem;
+        }
+        .text-white {
+            color: white;
+        }
+        .card {
+            background-color: #1c1c1c; /* Darker background for cards */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-img-top {
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">📚 My Book Recommender</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recommend">Recommend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container content">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+        </div>
+
+        {% for i in range(book_name|length) %}
+        <div class="col-md-3" style="margin-top:50px">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src="{{ image[i] }}" alt="Book Cover">
+                    <p class="text-white">{{ book_name[i] }}</p>
+                    <h6 class="text-white">{{ author[i] }}</h6>
+                    <h6 class="text-white">Votes - {{ votes[i] }}</h6>
+                    <h6 class="text-white">Rating - {{ rating[i] }}</h6>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #f0f4f8; /* Light text color for contrast */
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-gradient {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+            margin-right: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #dcdcdc;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+        .content {
+            padding: 2rem;
+        }
+        .text-white {
+            color: white;
+        }
+        .card {
+            background-color: #1c1c1c; /* Darker background for cards */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-img-top {
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">📚 My Book Recommender</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recommend">Recommend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container content">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+        </div>
+
+        {% for i in range(book_name|length) %}
+        <div class="col-md-3" style="margin-top:50px">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src="{{ image[i] }}" alt="Book Cover">
+                    <p class="text-white" style="font-size:18px">{{ book_name[i] }}</p>
+                    <h4 class="text-white">{{ author[i] }}</h4>
+                    <div class="rating-stars">
+                        {% for star in range(5) %}
+                        ★
+                        {% endfor %}
+                    </div>
+                    <p class="votes">Votes - {{ votes[i] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
